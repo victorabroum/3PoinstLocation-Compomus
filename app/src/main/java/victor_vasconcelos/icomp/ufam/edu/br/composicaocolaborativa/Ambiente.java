@@ -30,79 +30,48 @@ public class Ambiente {
         this.totalPessoas = totalPessoas;
     }
 
-    public int getTotalPessoas() {
-        return totalPessoas;
-    }
-
-    public void setTotalPessoas(int totalPessoas) {
-        this.totalPessoas = totalPessoas;
-    }
-
     public float getRaio() {
         return raio;
     }
 
-    public void setRaio(float raio) {
-        this.raio = raio;
-    }
-
-    public double getLatitude() {
+    public double getLatitudeA() {
         return latitudeA;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitudeA = latitude;
-    }
 
-    public double getLongitude() {
+    public double getLongitudeA() {
         return longitudeA;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitudeA = longitude;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public int getid() {
-        return id;
-    }
 
     public double getLatitudeB() {
         return latitudeB;
     }
 
-    public void setLatitudeB(double latitudeB) {
-        this.latitudeB = latitudeB;
-    }
 
     public double getLongitudeB() {
         return longitudeB;
     }
 
-    public void setLongitudeB(double longitudeB) {
-        this.longitudeB = longitudeB;
-    }
 
     public double getLatitudeC() {
         return latitudeC;
     }
 
-    public void setLatitudeC(double latitudeC) {
-        this.latitudeC = latitudeC;
-    }
 
     public double getLongitudeC() {
         return longitudeC;
     }
 
-    public void setLongitudeC(double longitudeC) {
-        this.longitudeC = longitudeC;
+    public int getId() {
+        return id;
+    }
+
+    public int getTotalPessoas() {
+        return totalPessoas;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 }

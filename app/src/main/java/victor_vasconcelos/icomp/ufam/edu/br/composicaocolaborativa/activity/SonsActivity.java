@@ -127,19 +127,20 @@ public class SonsActivity extends AppCompatActivity implements com.google.androi
             inserirLog(aux, usuario.getIdUsuario(), usuario.getNome());
         }
 
+        //Create and initialize vector necessary for location.distanceBetween
         float vectorA[] = new float[3];
         float vectorB[] = new float[3];
         float vectorC[] = new float[3];
 
-        //Função para saber a distancia
-        Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
+        //Functions to know distance between two points
+        Location.distanceBetween(ambiente.getLatitudeA(), ambiente.getLongitudeA(),
                 location.getLatitude(), location.getLongitude(), vectorA);
-        Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
+        Location.distanceBetween(ambiente.getLatitudeB(), ambiente.getLongitudeB(),
                 location.getLatitude(), location.getLongitude(), vectorB);
-        Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
+        Location.distanceBetween(ambiente.getLatitudeC(), ambiente.getLongitudeC(),
                 location.getLatitude(), location.getLongitude(), vectorC);
 
-        tvInicio.setText(String.format("(%s,%s)", ambiente.getLongitude(), ambiente.getLatitude()));
+        tvInicio.setText(String.format("(%s,%s)", ambiente.getLongitudeA(), ambiente.getLatitudeA()));
         tvFinal.setText(String.format("(%s,%s)", location.getLongitude(), location.getLatitude()));
         tvDist.setText(String.format("Distância A: %s \n" +
                 "Distância B: %s \n" +
@@ -202,7 +203,6 @@ public class SonsActivity extends AppCompatActivity implements com.google.androi
                                     response.getDouble("LongitudeB"), response.getDouble("LongitudeB"),
                                     response.getDouble("LongitudeC"), response.getDouble("LatitudeC"),
                                     raio, response.getInt("Pessoas"));
-                            Log.i("GetAmbienteAll", "Raio: " + ambiente.getRaio());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

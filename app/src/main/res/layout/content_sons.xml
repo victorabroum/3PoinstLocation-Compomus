@@ -22,14 +22,14 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Trocar Som"
         android:id="@+id/btTrocarSom"
+        android:onClick="btTrocarSom"
+        android:layout_alignWithParentIfMissing="false"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
-        android:onClick="btTrocarSom" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"

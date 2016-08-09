@@ -47,7 +47,7 @@ public class SetLocationActivity extends AppCompatActivity implements GoogleApiC
     private Button btConfirmedSetLocation;
     private Map<String, String> params;
 
-    private double vectorPositions[];
+    private double[] vectorPositions;
     private int i;
 
     @Override
@@ -59,7 +59,7 @@ public class SetLocationActivity extends AppCompatActivity implements GoogleApiC
         btConfirmedSetLocation.setEnabled(false);
 
         params = new HashMap<>();
-        vectorPositions = null;
+        vectorPositions = new double[6];
         i = 0;
 
         //Call connection to initialize Google Play Service API
