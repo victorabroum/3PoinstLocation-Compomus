@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -43,10 +44,23 @@ public class SetLocationActivity extends AppCompatActivity implements GoogleApiC
     private ProgressDialog pDialog;
     private RequestQueue rq;
 
+    private Button btConfirmedSetLocation;
+    private Map<String, String> params;
+
+    private double vectorPositions[];
+    private int i;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_location);
+
+        btConfirmedSetLocation = (Button) findViewById(R.id.btConfirmarPos);
+        btConfirmedSetLocation.setEnabled(false);
+
+        params = new HashMap<>();
+        vectorPositions = null;
+        i = 0;
 
         //Call connection to initialize Google Play Service API
         callConnection();
@@ -83,10 +97,14 @@ public class SetLocationActivity extends AppCompatActivity implements GoogleApiC
 
         String url = getResources().getString(R.string.ip) +"/composicaomusical/app.php/updateLatLong";
 
-        Map<String, String> params = new HashMap<>();
+        params.put("LatitudeA", "" + vectorPositions[0]);
+        params.put("LongitudeA", "" + vectorPositions[1]);
 
-        params.put("latitude", tvLatitude.getText().toString());
-        params.put("longitude", tvLongitude.getText().toString());
+        params.put("LatitudeB", "" + vectorPositions[2]);
+        params.put("LongitudeB", "" + vectorPositions[3]);
+
+        params.put("LatitudeC", "" + vectorPositions[4]);
+        params.put("LongitudeC", "" + vectorPositions[5]);
 
         showpDialog();
 
@@ -118,6 +136,17 @@ public class SetLocationActivity extends AppCompatActivity implements GoogleApiC
     public void onLocationChanged(Location location) {
         tvLatitude.setText(String.format("%s", location.getLatitude()));
         tvLongitude.setText(String.format("%s", location.getLongitude()));
+
+        if (i > 4){
+            btConfirmedSetLocation.setEnabled(true);
+        }else{
+            vectorPositions[i] = location.getLatitude();
+            vectorPositions[i+1] = location.getLongitude();
+            i+=2;
+        }
+
+
+
     }
 
     private void showpDialog() {

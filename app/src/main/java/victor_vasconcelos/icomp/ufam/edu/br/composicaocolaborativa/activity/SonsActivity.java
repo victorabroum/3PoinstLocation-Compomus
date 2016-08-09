@@ -127,13 +127,13 @@ public class SonsActivity extends AppCompatActivity implements com.google.androi
             inserirLog(aux, usuario.getIdUsuario(), usuario.getNome());
         }
 
-        float vector[] = new float[3];
+        float vectorA[] = new float[3];
         float vectorB[] = new float[3];
         float vectorC[] = new float[3];
 
         //Função para saber a distancia
         Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
-                location.getLatitude(), location.getLongitude(), vector);
+                location.getLatitude(), location.getLongitude(), vectorA);
         Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
                 location.getLatitude(), location.getLongitude(), vectorB);
         Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
@@ -144,9 +144,9 @@ public class SonsActivity extends AppCompatActivity implements com.google.androi
         tvDist.setText(String.format("Distância A: %s \n" +
                 "Distância B: %s \n" +
                 "Distância C: %s",
-                vector[0], vectorB[0], vectorC[0]));
+                vectorA[0], vectorB[0], vectorC[0]));
 
-        if (vector[0] <= ambiente.getRaio() || vectorB[0] <= ambiente.getRaio()
+        if (vectorA[0] <= ambiente.getRaio() || vectorB[0] <= ambiente.getRaio()
                 || vectorC[0] <= ambiente.getRaio()) {
             if (!entrou) {
                 updatePessoas("1");
