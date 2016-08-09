@@ -127,20 +127,27 @@ public class SonsActivity extends AppCompatActivity implements com.google.androi
             inserirLog(aux, usuario.getIdUsuario(), usuario.getNome());
         }
 
-        float vetor[] = new float[3];
-        float vetorB[] = new float[3];
-        float vetorC[] = new float[3];
-        float vetorD[] = new float[3];
+        float vector[] = new float[3];
+        float vectorB[] = new float[3];
+        float vectorC[] = new float[3];
 
         //Função para saber a distancia
         Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
-                location.getLatitude(), location.getLongitude(), vetor);
+                location.getLatitude(), location.getLongitude(), vector);
+        Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
+                location.getLatitude(), location.getLongitude(), vectorB);
+        Location.distanceBetween(ambiente.getLatitude(), ambiente.getLongitude(),
+                location.getLatitude(), location.getLongitude(), vectorC);
 
         tvInicio.setText(String.format("(%s,%s)", ambiente.getLongitude(), ambiente.getLatitude()));
         tvFinal.setText(String.format("(%s,%s)", location.getLongitude(), location.getLatitude()));
-        tvDist.setText(String.format("Distância : %s", vetor[0]));
+        tvDist.setText(String.format("Distância A: %s \n" +
+                "Distância B: %s \n" +
+                "Distância C: %s",
+                vector[0], vectorB[0], vectorC[0]));
 
-        if (vetor[0] <= ambiente.getRaio()) {
+        if (vector[0] <= ambiente.getRaio() || vectorB[0] <= ambiente.getRaio()
+                || vectorC[0] <= ambiente.getRaio()) {
             if (!entrou) {
                 updatePessoas("1");
             }

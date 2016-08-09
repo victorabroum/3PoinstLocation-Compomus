@@ -7,21 +7,21 @@ public class Ambiente {
 
     private int id;
     private String descricao;
-    private double latitude, longitude,
+    private double latitudeA, longitudeA,
                     latitudeB,longitudeB,
                     latitudeC,longitudeC;
     private float raio;
     private int totalPessoas;
 
     public Ambiente(int id, String descricao,
-                    double longitude, double latitude,
+                    double longitudeA, double latitudeA,
                     double latitudeB, double longitudeB,
                     double latitudeC, double longitudeC,
                     float raio, int totalPessoas) {
         this.id = id;
         this.descricao = descricao;
-        this.latitude = latitude;
-        this.longitude = longitude;
+        this.latitudeA = latitudeA;
+        this.longitudeA = longitudeA;
         this.latitudeB = latitudeB;
         this.longitudeB = longitudeB;
         this.latitudeC = latitudeC;
@@ -47,19 +47,19 @@ public class Ambiente {
     }
 
     public double getLatitude() {
-        return latitude;
+        return latitudeA;
     }
 
     public void setLatitude(double latitude) {
-        this.latitude = latitude;
+        this.latitudeA = latitude;
     }
 
     public double getLongitude() {
-        return longitude;
+        return longitudeA;
     }
 
     public void setLongitude(double longitude) {
-        this.longitude = longitude;
+        this.longitudeA = longitude;
     }
 
     public String getDescricao() {
