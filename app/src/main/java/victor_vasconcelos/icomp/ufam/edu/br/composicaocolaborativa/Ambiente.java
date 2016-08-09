@@ -15,8 +15,8 @@ public class Ambiente {
 
     public Ambiente(int id, String descricao,
                     double longitudeA, double latitudeA,
-                    double latitudeB, double longitudeB,
-                    double latitudeC, double longitudeC,
+                    double longitudeB, double latitudeB,
+                    double longitudeC, double latitudeC,
                     float raio, int totalPessoas) {
         this.id = id;
         this.descricao = descricao;

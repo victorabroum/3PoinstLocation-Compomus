@@ -200,7 +200,7 @@ public class SonsActivity extends AppCompatActivity implements com.google.androi
                             ambiente = new Ambiente(response.getInt("Id"), response.getString("Descricao"),
                                     response.getDouble("LongitudeA"), response.getDouble("LatitudeA"),
                                     response.getDouble("LongitudeB"), response.getDouble("LongitudeB"),
-                                    response.getDouble("LatitudeC"), response.getDouble("LongitudeC"),
+                                    response.getDouble("LongitudeC"), response.getDouble("LatitudeC"),
                                     raio, response.getInt("Pessoas"));
                             Log.i("GetAmbienteAll", "Raio: " + ambiente.getRaio());
                         } catch (JSONException e) {
